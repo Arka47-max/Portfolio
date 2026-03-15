@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosciuszko Enzo — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       NAVIGATION
+       Pour changer les liens : modifie les href et les textes
+       dans les <a class="nav-lien">
+       =================================================== -->
+  <nav>
+    <span class="nav-logo">Enzo K.</span>
+    <ul class="nav-liens">
+      <li><a href="index.html" class="nav-lien actif">CV</a></li>
+      <li><a href="veille.html" class="nav-lien">Veille</a></li>
+      <li>
+        <a href="rectorat.html" class="nav-lien">
+          Rectorat <span class="badge-wip">WIP</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ===================================================
+         SECTION HERO (présentation principale)
+         Modifie le texte ici pour changer ta présentation
+         =================================================== -->
+    <section class="hero">
+
+      <div class="hero-contenu">
+        <!-- Petite ligne au-dessus du titre -->
+        <p class="hero-surtitre">Portfolio · BTS SIO SLAM</p>
+
+        <!-- Titre principal. <em> = italique terracotta -->
+        <h1 class="hero-titre">
+          Kosciuszko<br>
+          <em>Enzo</em>
+        </h1>
+
+        <!-- Phrase d'accroche -->
+        <p class="hero-description">
+          Étudiant en BTS SIO option SLAM, passionné de développement web et logiciel.
+          En recherche d'un stage du <strong>25 mai</strong> au <strong>26 juin 2026</strong>.
+        </p>
+
+        <!-- Boutons d'action -->
+        <div class="hero-actions">
+          <!-- Lien pour télécharger le CV — remplace # par le chemin de ton PDF -->
+          <a href="#" class="btn btn-accent">Télécharger le CV</a>
+          <!-- Lien mailto pour le contact -->
+          <a href="mailto:mr.enzoko@gmail.com" class="btn">Me contacter</a>
+        </div>
+      </div>
+
+      <!-- Côté droit : photo + infos -->
+      <div class="hero-profil">
+        <!-- Cadre photo. Remplace src="..." par le chemin de ta photo -->
+        <div class="profil-photo-cadre">
+          <img src="photo.jpg" alt="Photo de Kosciuszko Enzo" />
+        </div>
+
+        <!-- Bloc de métadonnées rapides -->
+        <div class="profil-infos">
+          <div class="profil-infos-ligne">
+            <span class="key">Né le</span>
+            <span>11 juillet 2007</span>
+          </div>
+          <div class="profil-infos-ligne">
+            <span class="key">Ville</span>
+            <span>La Vaupalière, 76</span>
+          </div>
+          <div class="profil-infos-ligne">
+            <span class="key">Formation</span>
+            <span>BTS SIO SLAM</span>
+          </div>
+          <div class="profil-infos-ligne">
+            <span class="key">Permis</span>
+            <span>B</span>
+          </div>
+          <div class="profil-infos-ligne">
+            <span class="key">Langues</span>
+            <span>FR · EN · DE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION COMPÉTENCES TECHNIQUES
+         Pour ajouter une compétence : copie une .competence-carte
+         Niveau : change le nombre de .niveau-dot avec class="actif"
+         (max 3 dots)
+         =================================================== -->
+    <section class="section-competences">
+      <p class="label">Hard Skills</p>
+      <h2 class="section-titre">Compétences techniques</h2>
+
+      <div class="competences-grille">
+
+        <!-- CARTE SQL -->
+        <div class="competence-carte">
+          <div class="competence-icone">🗄️</div>
+          <div class="competence-nom">SQL</div>
+          <div class="competence-sous">Bases de données</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot"></span>
+          </div>
+        </div>
+
+        <!-- CARTE C# -->
+        <div class="competence-carte">
+          <div class="competence-icone">⚙️</div>
+          <div class="competence-nom">C#</div>
+          <div class="competence-sous">Développement logiciel</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot"></span>
+          </div>
+        </div>
+
+        <!-- CARTE HTML -->
+        <div class="competence-carte">
+          <div class="competence-icone">🌐</div>
+          <div class="competence-nom">HTML / CSS</div>
+          <div class="competence-sous">Développement web</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+          </div>
+        </div>
+
+        <!-- CARTE C -->
+        <div class="competence-carte">
+          <div class="competence-icone">🔧</div>
+          <div class="competence-nom">C</div>
+          <div class="competence-sous">Programmation bas niveau</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot"></span>
+            <span class="niveau-dot"></span>
+          </div>
+        </div>
+
+        <!-- CARTE Réseaux / Systèmes -->
+        <div class="competence-carte">
+          <div class="competence-icone">🖧</div>
+          <div class="competence-nom">Réseaux</div>
+          <div class="competence-sous">Administration systèmes</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot"></span>
+          </div>
+        </div>
+
+        <!-- CARTE Soft Skills -->
+        <div class="competence-carte">
+          <div class="competence-icone">🤝</div>
+          <div class="competence-nom">Soft Skills</div>
+          <div class="competence-sous">Polyvalence · Autonomie · Équipe</div>
+          <div class="competence-niveau">
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+            <span class="niveau-dot actif"></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION PARCOURS (formation + expériences)
+         Pour ajouter un item : copie un .timeline-item complet
+         =================================================== -->
+    <section class="section-experiences">
+      <p class="label">Parcours</p>
+      <h2 class="section-titre">Formation &amp; expériences</h2>
+
+      <div class="timeline">
+
+        <!-- Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — Présent</div>
+          <div class="timeline-contenu">
+            <div class="timeline-contenu-titre">BTS SIO option SLAM</div>
+            <div class="timeline-lieu">Campus La Chataigneraie · Le Mesnil-Esnard</div>
+            <p class="timeline-texte">
+              Services Informatiques aux Organisations — développement web &amp; logiciel,
+              administration systèmes et réseaux. En cours d'acquisition.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2025 — Présent</div>
+          <div class="timeline-contenu">
+            <div class="timeline-contenu-titre">Job étudiant — Carrefour Drive</div>
+            <div class="timeline-lieu">Carrefour · Barentin</div>
+            <p class="timeline-texte">
+              Préparation de commandes, sens du service client, autonomie et maîtrise
+              des outils de suivi de livraison.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2023 — 2025</div>
+          <div class="timeline-contenu">
+            <div class="timeline-contenu-titre">Baccalauréat STI2D — Mention Bien</div>
+            <div class="timeline-lieu">Lycée Thomas Corneille · Barentin</div>
+            <p class="timeline-texte">
+              Maîtrise des technologies de l'ingénieur, approche pratique
+              par projets multidisciplinaires.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="timeline-item">
+          <div class="timeline-date">Déc. 2021</div>
+          <div class="timeline-contenu">
+            <div class="timeline-contenu-titre">Stage de découverte</div>
+            <div class="timeline-lieu">Haropa Port · Rouen</div>
+            <p class="timeline-texte">
+              Découverte des activités portuaires et de la logistique maritime.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2018 — 2022</div>
+          <div class="timeline-contenu">
+            <div class="timeline-contenu-titre">Brevet — Mention Très Bien</div>
+            <div class="timeline-lieu">Collège Sainte-Marie · Déville-lès-Rouen</div>
+            <p class="timeline-texte"></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================
+       FOOTER
+       =================================================== -->
+  <footer>
+    <span class="footer-nom">Kosciuszko Enzo</span>
+    <div class="footer-contact">
+      <a href="mailto:mr.enzoko@gmail.com">mr.enzoko@gmail.com</a>
+      &nbsp;·&nbsp; +33 7 68 06 86 63
+    </div>
+  </footer>
+
+</body>
+</html>

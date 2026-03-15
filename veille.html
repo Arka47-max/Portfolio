@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille Technologique — Enzo K.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- === NAVIGATION ======================================= -->
+  <nav>
+    <span class="nav-logo">Enzo K.</span>
+    <ul class="nav-liens">
+      <li><a href="index.html" class="nav-lien">CV</a></li>
+      <li><a href="veille.html" class="nav-lien actif">Veille</a></li>
+      <li>
+        <a href="rectorat.html" class="nav-lien">
+          Rectorat <span class="badge-wip">WIP</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- === HERO DE LA PAGE VEILLE ======================== -->
+    <section class="veille-hero">
+      <p class="label">Veille technologique · BTS SIO SLAM</p>
+      <h1 class="veille-titre">
+        L'IA générative<br>
+        dans le développement<br>
+        <em style="font-style:italic; color:var(--terracotta);">logiciel</em>
+      </h1>
+      <p class="veille-intro">
+        Exploration de l'impact de l'intelligence artificielle générative sur
+        la production de code, la qualité logicielle et la sécurité applicative.
+      </p>
+
+      <!-- === ONGLETS DE NAVIGATION =====================
+           JavaScript en bas de page gère l'affichage
+           des panneaux selon l'onglet actif.
+           Pour renommer un onglet : change le texte du bouton
+           ET l'id du panneau correspondant (data-panneau="xxx"
+           et id="panneau-xxx" doivent correspondre).
+           ================================================ -->
+      <div class="onglets-nav" role="tablist">
+        <button class="onglet-btn actif" data-panneau="theme" role="tab">Thème</button>
+        <button class="onglet-btn" data-panneau="outils" role="tab">Outils</button>
+        <button class="onglet-btn" data-panneau="news" role="tab">Actualités</button>
+      </div>
+    </section>
+
+    <!-- === PANNEAU 1 : THÈME ============================ -->
+    <div class="onglet-panneau actif" id="panneau-theme">
+
+      <p class="label" style="margin-bottom:0.5rem">Bornage du sujet</p>
+      <h2 class="section-titre" style="margin-bottom:var(--espace-m)">
+        Trois axes d'exploration
+      </h2>
+
+      <!-- ================================================
+           Grille des 3 axes.
+           Pour modifier un axe : change le numéro, le nom et la description.
+           ================================================ -->
+      <div class="bornage-grille">
+
+        <!-- Axe 1 -->
+        <div class="bornage-carte">
+          <div class="bornage-numero">01</div>
+          <div class="bornage-nom">Production de code</div>
+          <p class="bornage-desc">
+            Assistance à la génération de code et de fonctions. Des outils comme
+            GitHub Copilot ou les modèles Devstral permettent d'accélérer
+            considérablement le développement applicatif.
+          </p>
+        </div>
+
+        <!-- Axe 2 -->
+        <div class="bornage-carte">
+          <div class="bornage-numero">02</div>
+          <div class="bornage-nom">Tests &amp; qualité logicielle</div>
+          <p class="bornage-desc">
+            Automatisation des tests unitaires et détection proactive des erreurs.
+            L'IA identifie les problèmes de qualité et génère des suites de tests
+            rapidement et efficacement.
+          </p>
+        </div>
+
+        <!-- Axe 3 -->
+        <div class="bornage-carte">
+          <div class="bornage-numero">03</div>
+          <div class="bornage-nom">Sécurité applicative</div>
+          <p class="bornage-desc">
+            Identification des vulnérabilités et proposition de correctifs automatisés.
+            La vigilance reste nécessaire pour prévenir de nouveaux vecteurs d'attaque.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bloc de mise en contexte -->
+      <div style="margin-top:var(--espace-l); max-width:75ch;">
+        <p class="label" style="margin-bottom:0.5rem">Pourquoi ce sujet ?</p>
+        <p style="color:var(--gris-chaud); font-size:var(--t-lg); line-height:1.7;">
+          L'IA générative est désormais au cœur du développement logiciel moderne.
+          En BTS SIO option SLAM, comprendre ces outils est devenu indispensable
+          pour travailler efficacement et anticiper les évolutions du métier.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- === PANNEAU 2 : OUTILS =========================== -->
+    <div class="onglet-panneau" id="panneau-outils">
+
+      <p class="label" style="margin-bottom:0.5rem">Sources &amp; outils de veille</p>
+      <h2 class="section-titre" style="margin-bottom:var(--espace-m)">
+        Comment je surveille les tendances
+      </h2>
+
+      <!-- ================================================
+           Cartes outils. Pour en ajouter une, copie un
+           bloc .outil-carte complet.
+           ================================================ -->
+      <div class="outils-grille">
+
+        <!-- Outil 1 -->
+        <div class="outil-carte">
+          <div class="outil-nom">Feedly</div>
+          <p class="outil-desc">
+            Agrégateur de flux RSS permettant de regrouper les sources tech
+            en un seul endroit et de suivre les nouvelles publications en temps réel.
+          </p>
+          <span class="outil-type">Agrégateur RSS</span>
+        </div>
+
+        <!-- Outil 2 -->
+        <div class="outil-carte">
+          <div class="outil-nom">Google Alerts</div>
+          <p class="outil-desc">
+            Alertes email personnalisées déclenchées dès qu'un sujet choisi
+            apparaît dans l'actualité. Idéal pour rester informé sans effort quotidien.
+          </p>
+          <span class="outil-type">Alertes automatiques</span>
+        </div>
+
+        <!-- Outil 3 -->
+        <div class="outil-carte">
+          <div class="outil-nom">LinkedIn</div>
+          <p class="outil-desc">
+            Suivi d'experts du secteur et de publications professionnelles pour
+            des retours d'expérience concrets sur l'usage de l'IA en entreprise.
+          </p>
+          <span class="outil-type">Réseau professionnel</span>
+        </div>
+
+        <!-- Outil 4 — à personnaliser si besoin -->
+        <div class="outil-carte">
+          <div class="outil-nom">L'Usine Digitale</div>
+          <p class="outil-desc">
+            Média spécialisé dans la transformation numérique des entreprises.
+            Source principale des articles analysés dans cette veille.
+          </p>
+          <span class="outil-type">Presse spécialisée</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- === PANNEAU 3 : NEWS / ACTUALITÉS ================ -->
+    <div class="onglet-panneau" id="panneau-news">
+
+      <p class="label" style="margin-bottom:0.5rem">Articles analysés</p>
+      <h2 class="section-titre" style="margin-bottom:var(--espace-m)">
+        Actualités sélectionnées
+      </h2>
+
+      <!-- ================================================
+           Liste d'articles. Pour ajouter un article :
+           copie un bloc .news-carte complet et modifie
+           les informations (date, source, titre, résumé, URL).
+           ================================================ -->
+      <div class="news-liste">
+
+        <!-- Article 1 : Mistral Devstral 2 -->
+        <article class="news-carte">
+          <div class="news-meta">
+            <div class="news-date">10 déc. 2025</div>
+            <div class="news-source">L'Usine Digitale</div>
+            <p style="font-size:var(--t-xs); color:var(--gris-chaud); margin-bottom:0.5rem;">
+              Auteur : Célia Séramour
+            </p>
+            <!-- Tags de bornage : indiquent à quel axe se rapporte l'article -->
+            <div class="news-bornage">
+              <span class="tag actif">Production de code</span>
+              <span class="tag actif">Sécurité</span>
+            </div>
+          </div>
+          <div class="news-contenu">
+            <h3 class="news-titre">Mistral sort Devstral 2</h3>
+            <p class="news-resume">
+              Mistral AI publie deux modèles open source dédiés au développement logiciel,
+              Devstral 2 (123B) et Devstral Small 2 (24B), capables de rivaliser avec
+              des modèles bien plus grands. Devstral 2 peut analyser et modifier des bases
+              de code entières, suivre les dépendances et corriger automatiquement des erreurs.
+              Devstral Small 2 fonctionne localement et peut alimenter des agents multimodaux.
+              Les deux modèles sont optimisés pour l'écosystème Nvidia et proposés sous
+              licences permissives. Mistral lance également Vibe CLI, un assistant en ligne
+              de commande capable d'explorer et d'exécuter du code en langage naturel.
+            </p>
+            <!-- Remplace href="..." par l'URL réelle de l'article -->
+            <a href="#" class="news-lien" target="_blank" rel="noopener">
+              Lire l'article →
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 2 : OpenAI et AWS -->
+        <article class="news-carte">
+          <div class="news-meta">
+            <div class="news-date">27 févr. 2026</div>
+            <div class="news-source">L'Usine Digitale</div>
+            <p style="font-size:var(--t-xs); color:var(--gris-chaud); margin-bottom:0.5rem;">
+              Auteur : Célia Séramour
+            </p>
+            <div class="news-bornage">
+              <span class="tag actif">Production de code</span>
+              <span class="tag actif">Tests &amp; qualité</span>
+            </div>
+          </div>
+          <div class="news-contenu">
+            <h3 class="news-titre">OpenAI et AWS signent un partenariat stratégique</h3>
+            <p class="news-resume">
+              OpenAI et AWS concluent un accord massif : Amazon investit 50 milliards
+              de dollars et obtient l'exclusivité de la distribution cloud tierce pour
+              Frontier, la plateforme dédiée aux AI coworkers. Les deux entreprises vont
+              co-concevoir un Stateful Runtime Environment capable de faire tourner des
+              applications et agents d'IA générative à grande échelle, offrant aux
+              développeurs un accès fluide au calcul, à la mémoire et au contexte
+              nécessaire pour des outils intégrés dans les workflows.
+            </p>
+            <a href="#" class="news-lien" target="_blank" rel="noopener">
+              Lire l'article →
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 3 (placeholder — à compléter) -->
+        <!--
+        <article class="news-carte">
+          <div class="news-meta">
+            <div class="news-date">JJ MMM AAAA</div>
+            <div class="news-source">Source</div>
+            <div class="news-bornage">
+              <span class="tag actif">Axe concerné</span>
+            </div>
+          </div>
+          <div class="news-contenu">
+            <h3 class="news-titre">Titre de l'article</h3>
+            <p class="news-resume">Résumé de l'article...</p>
+            <a href="URL" class="news-lien" target="_blank">Lire l'article →</a>
+          </div>
+        </article>
+        -->
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- === FOOTER ========================================= -->
+  <footer>
+    <span class="footer-nom">Kosciuszko Enzo</span>
+    <div class="footer-contact">
+      <a href="mailto:mr.enzoko@gmail.com">mr.enzoko@gmail.com</a>
+      &nbsp;·&nbsp; +33 7 68 06 86 63
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       SCRIPT — Gestion des onglets
+       Fonctionnement :
+       1. On récupère tous les boutons .onglet-btn
+       2. Au clic, on retire "actif" de tout le monde
+       3. On ajoute "actif" au bouton cliqué et au
+          panneau correspondant (via data-panneau="xxx"
+          qui correspond à id="panneau-xxx")
+       =================================================== -->
+  <script>
+    const boutons = document.querySelectorAll('.onglet-btn');
+    const panneaux = document.querySelectorAll('.onglet-panneau');
+
+    boutons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Retirer "actif" de tous les boutons et panneaux
+        boutons.forEach(b => b.classList.remove('actif'));
+        panneaux.forEach(p => p.classList.remove('actif'));
+
+        // Activer le bouton cliqué
+        btn.classList.add('actif');
+
+        // Activer le panneau correspondant
+        const cible = btn.dataset.panneau; // ex: "theme", "outils", "news"
+        const panneau = document.getElementById('panneau-' + cible);
+        if (panneau) panneau.classList.add('actif');
+      });
+    });
+  </script>
+
+</body>
+</html>
