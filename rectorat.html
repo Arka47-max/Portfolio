@@ -3,70 +3,367 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tableau des compétences — Enzo K.</title>
+  <title>Tableau des compétences BTS SIO — Enzo K.</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ============================================================
+       STYLES SPÉCIFIQUES AU TABLEAU RECTORAT
+       ============================================================ */
+
+    .rectorat-header {
+      padding: var(--espace-l) 0 var(--espace-m);
+    }
+
+    .rectorat-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin: var(--espace-m) 0;
+      font-family: var(--font-mono);
+      font-size: var(--t-xs);
+      color: var(--gris-chaud);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .rectorat-meta span strong {
+      color: var(--encre);
+    }
+
+    /* Conteneur scrollable sur petits écrans */
+    .tableau-wrapper {
+      overflow-x: auto;
+      margin-top: var(--espace-m);
+      border: 1px solid var(--ligne);
+      border-radius: var(--rayon);
+      box-shadow: var(--ombre);
+    }
+
+    /* ---- TABLEAU PRINCIPAL ---- */
+    table.bts-tableau {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-titre);
+      font-size: 0.78rem;
+      min-width: 900px;
+      background-color: var(--creme);
+    }
+
+    table.bts-tableau th {
+      background-color: var(--encre);
+      color: var(--creme);
+      font-family: var(--font-titre);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.8rem 0.6rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      vertical-align: middle;
+      line-height: 1.3;
+    }
+
+    table.bts-tableau th.col-realisation {
+      text-align: left;
+      width: 36%;
+    }
+
+    table.bts-tableau td {
+      padding: 0.65rem 0.7rem;
+      border: 1px solid var(--ligne);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    table.bts-tableau td.nom-realisation {
+      font-family: var(--font-corps);
+      font-size: 0.82rem;
+      color: var(--encre);
+    }
+
+    table.bts-tableau tbody tr:nth-child(odd) td {
+      background-color: var(--sable);
+    }
+
+    table.bts-tableau tbody tr:nth-child(even) td {
+      background-color: var(--creme);
+    }
+
+    table.bts-tableau tbody tr:hover td {
+      background-color: rgba(196, 98, 45, 0.06);
+    }
+
+    /* Croix SVG terracotta */
+    .croix {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .croix svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--terracotta);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+    /* Lignes de sous-titre de groupe */
+    tr.groupe-header td {
+      background-color: var(--terracotta) !important;
+      color: var(--creme) !important;
+      font-family: var(--font-titre);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.7rem;
+      border: none;
+    }
+
+    tr.section-competences-header td {
+      background-color: var(--encre) !important;
+      color: var(--creme) !important;
+      font-family: var(--font-titre);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 0.7rem;
+    }
+
+    td.competence-label {
+      font-family: var(--font-corps);
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--encre);
+    }
+
+    .fleche {
+      color: var(--terracotta);
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    th.competence-col {
+      font-size: 0.62rem;
+      line-height: 1.25;
+      padding: 0.8rem 0.4rem;
+      width: 10%;
+    }
+
+    /* Légende */
+    .tableau-legende {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: var(--espace-s);
+      font-family: var(--font-mono);
+      font-size: var(--t-xs);
+      color: var(--gris-chaud);
+      letter-spacing: 0.08em;
+    }
+
+    .legende-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- === NAVIGATION ======================================= -->
   <nav>
     <span class="nav-logo">Enzo K.</span>
     <ul class="nav-liens">
       <li><a href="index.html" class="nav-lien">CV</a></li>
       <li><a href="veille.html" class="nav-lien">Veille</a></li>
-      <li>
-        <a href="rectorat.html" class="nav-lien actif">
-          Rectorat <span class="badge-wip">WIP</span>
-        </a>
-      </li>
+      <li><a href="rectorat.html" class="nav-lien actif">Rectorat</a></li>
     </ul>
   </nav>
 
   <main>
 
-    <!-- ===================================================
-         PAGE EN CONSTRUCTION
-         Pour personnaliser le message : modifie les textes
-         dans .wip-titre et .wip-desc.
-         Le pourcentage de la barre se change dans style.css
-         à la propriété "width" de .wip-barre-rempli (ligne ~310).
-         =================================================== -->
-    <section class="wip-page">
-
-      <!-- Grand chiffre décoratif -->
-      <div class="wip-code">WIP</div>
-
-      <!-- Titre de la page -->
-      <h1 class="wip-titre">Tableau des compétences</h1>
-
-      <!-- Description -->
-      <p class="wip-desc">
-        Cette section présentera le tableau des compétences du référentiel
-        BTS SIO, avec le suivi de l'acquisition des compétences du rectorat.
-        Elle est en cours de construction et sera disponible prochainement.
-      </p>
-
-      <!-- Barre de progression décorative -->
-      <div>
-        <!-- Texte de statut — modifie ici -->
-        <p class="label" style="text-align:center; margin-bottom:0.8rem;">
-          En cours de développement
-        </p>
-        <div class="wip-barre-fond">
-          <div class="wip-barre-rempli"></div>
-        </div>
+    <section class="rectorat-header">
+      <p class="label">Référentiel officiel · BTS SIO · Session 2026</p>
+      <h1 class="section-titre" style="font-size: clamp(2rem, 4vw, var(--t-3xl)); margin: 0.5rem 0 var(--espace-s);">
+        Tableau de synthèse<br>des réalisations professionnelles
+      </h1>
+      <div class="rectorat-meta">
+        <span>Session <strong>2026</strong></span>
+        <span>Option <strong>SLAM</strong></span>
+        <span>Candidat <strong>KOSCIUSZKO Enzo</strong></span>
+        <span>Centre <strong>Campus La Chataigneraie</strong></span>
       </div>
-
-      <!-- Lien de retour -->
-      <a href="index.html" class="btn" style="margin-top:1rem;">
-        ← Retour au CV
-      </a>
-
+      <hr class="trait" />
     </section>
+
+    <div class="tableau-wrapper">
+      <table class="bts-tableau" aria-label="Tableau de synthèse BTS SIO">
+        <thead>
+          <tr>
+            <th class="col-realisation">
+              Réalisations professionnelles<br>
+              <span style="font-weight:400; font-size:0.62rem; opacity:0.8;">(intitulé et liste des documents et productions associés)</span>
+            </th>
+            <th class="competence-col">Gérer le patrimoine informatique</th>
+            <th class="competence-col">Répondre aux incidents et demandes d'assistance et d'évolution</th>
+            <th class="competence-col">Développer la présence en ligne de l'organisation</th>
+            <th class="competence-col">Travailler en mode projet</th>
+            <th class="competence-col">Mettre à disposition des utilisateurs un service informatique</th>
+            <th class="competence-col">Organiser son développement professionnel</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- FORMATION -->
+          <tr class="groupe-header"><td colspan="7">Réalisation en cours de formation</td></tr>
+
+          <tr>
+            <td class="nom-realisation">Mise en place d'un site web statique / dynamique</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Étude et mise en place de bases de données</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Étude du référentiel</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td><td></td><td></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Création d'un compte professionnel</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td><td></td><td></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Installation et configuration de VM</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Découverte et étude du fonctionnement des réseaux</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Challenge root.me</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+
+          <tr>
+            <td class="nom-realisation">Création d'application console C# (Quizz, drapeau)</td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td class="croix"><svg viewBox="0 0 14 14"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></td>
+            <td></td><td></td>
+          </tr>
+
+          <!-- STAGE 1ÈRE ANNÉE -->
+          <tr class="groupe-header"><td colspan="7">Réalisations en milieu professionnel — 1ère année</td></tr>
+          <tr>
+            <td class="nom-realisation" style="color:var(--gris-chaud); font-style:italic;">En cours</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+
+          <!-- STAGE 2ÈME ANNÉE -->
+          <tr class="groupe-header"><td colspan="7">Réalisations en milieu professionnel — 2ème année</td></tr>
+          <tr>
+            <td class="nom-realisation" style="color:var(--gris-chaud); font-style:italic;">En cours</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+
+          <!-- COMPÉTENCES DÉTAILLÉES -->
+          <tr class="section-competences-header"><td colspan="7">Compétences mises en œuvre</td></tr>
+
+          <!-- A -->
+          <tr class="groupe-header"><td colspan="7">A — Gérer le patrimoine informatique</td></tr>
+          <tr><td class="competence-label">Recenser et identifier les ressources numériques</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Mettre en place et vérifier les niveaux d'habilitation associés à un service</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Vérifier les conditions de la continuité d'un service informatique</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Gérer des sauvegardes</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Vérifier le respect des règles d'utilisation des ressources numériques</td><td class="fleche">▸</td><td></td><td></td><td></td><td></td><td></td></tr>
+
+          <!-- B -->
+          <tr class="groupe-header"><td colspan="7">B — Répondre aux incidents et aux demandes d'assistance et d'évolution</td></tr>
+          <tr><td class="competence-label">Collecter, suivre et orienter des demandes</td><td></td><td class="fleche">▸</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Traiter des demandes concernant les services réseau et système, applicatifs</td><td></td><td class="fleche">▸</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Traiter des demandes concernant les applications</td><td></td><td class="fleche">▸</td><td></td><td></td><td></td><td></td></tr>
+
+          <!-- C -->
+          <tr class="groupe-header"><td colspan="7">C — Développer la présence en ligne de l'organisation</td></tr>
+          <tr><td class="competence-label">Participer à la valorisation de l'image de l'organisation sur les médias numériques en tenant compte du cadre juridique et des enjeux économiques</td><td></td><td></td><td class="fleche">▸</td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Référencer les services en ligne de l'organisation et mesurer leur visibilité</td><td></td><td></td><td class="fleche">▸</td><td></td><td></td><td></td></tr>
+          <tr><td class="competence-label">Participer à l'évolution d'un site Web exploitant les données de l'organisation</td><td></td><td></td><td class="fleche">▸</td><td></td><td></td><td></td></tr>
+
+          <!-- D -->
+          <tr class="groupe-header"><td colspan="7">D — Travailler en mode projet</td></tr>
+          <tr><td class="competence-label">Analyser les objectifs et les modalités d'organisation d'un projet</td><td></td><td></td><td></td><td class="fleche">▸</td><td></td><td></td></tr>
+          <tr><td class="competence-label">Planifier les activités</td><td></td><td></td><td></td><td class="fleche">▸</td><td></td><td></td></tr>
+          <tr><td class="competence-label">Évaluer les indicateurs de suivi d'un projet et analyser les écarts</td><td></td><td></td><td></td><td class="fleche">▸</td><td></td><td></td></tr>
+
+          <!-- E -->
+          <tr class="groupe-header"><td colspan="7">E — Mettre à disposition des utilisateurs un service informatique</td></tr>
+          <tr><td class="competence-label">Réaliser les tests d'intégration et d'acceptation d'un service</td><td></td><td></td><td></td><td></td><td class="fleche">▸</td><td></td></tr>
+          <tr><td class="competence-label">Déployer un service</td><td></td><td></td><td></td><td></td><td class="fleche">▸</td><td></td></tr>
+          <tr><td class="competence-label">Accompagner les utilisateurs dans la mise en place d'un service</td><td></td><td></td><td></td><td></td><td class="fleche">▸</td><td></td></tr>
+
+          <!-- F -->
+          <tr class="groupe-header"><td colspan="7">F — Organiser son développement professionnel</td></tr>
+          <tr><td class="competence-label">Mettre en place son environnement d'apprentissage personnel</td><td></td><td></td><td></td><td></td><td></td><td class="fleche">▸</td></tr>
+          <tr><td class="competence-label">Mettre en œuvre des outils et stratégies de veille informationnelle</td><td></td><td></td><td></td><td></td><td></td><td class="fleche">▸</td></tr>
+          <tr><td class="competence-label">Gérer son identité professionnelle</td><td></td><td></td><td></td><td></td><td></td><td class="fleche">▸</td></tr>
+          <tr><td class="competence-label">Développer son projet professionnel</td><td></td><td></td><td></td><td></td><td></td><td class="fleche">▸</td></tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Légende -->
+    <div class="tableau-legende">
+      <div class="legende-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" style="stroke:var(--terracotta);stroke-width:2.5;stroke-linecap:round;fill:none;">
+          <line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/>
+        </svg>
+        Compétence mobilisée par la réalisation
+      </div>
+      <div class="legende-item">
+        <span style="color:var(--terracotta); font-size:1rem;">▸</span>
+        Compétence détaillée couverte
+      </div>
+    </div>
 
   </main>
 
-  <!-- === FOOTER ========================================= -->
   <footer>
     <span class="footer-nom">Kosciuszko Enzo</span>
     <div class="footer-contact">
