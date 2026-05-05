@@ -7,15 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ============================================================
-       STYLES SUPPLÉMENTAIRES — PAGE INDEX
+       STYLES SUPPLÉMENTAIRES — PAGE INDEX UNIQUEMENT
        ============================================================ */
 
-    /* --- CERTIFICATIONS ------------------------------------ */
+    /* --- TICKER entre hero et compétences --- */
+    .ticker-section {
+      margin: var(--espace-l) 0 0;
+    }
+
+    /* --- CERTIFICATIONS --- */
     .section-certifications {
       padding: var(--espace-l) 0;
       border-top: 1px solid var(--ligne);
     }
-
     .certif-grille {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -23,295 +27,20 @@
       margin-top: var(--espace-m);
     }
 
-    .certif-carte {
-      background-color: var(--sable);
-      border: 1px solid var(--ligne);
-      border-radius: var(--rayon);
-      padding: var(--espace-m);
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      transition: all var(--transition);
-    }
+    /* --- LANGUES --- */
+    .section-langues { padding: var(--espace-l) 0; border-top: 1px solid var(--ligne); }
+    .langues-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--espace-m); margin-top: var(--espace-m); }
 
-    .certif-carte:hover {
-      border-color: var(--terracotta);
-      transform: translateY(-2px);
-      box-shadow: var(--ombre);
-    }
+    /* --- HOBBIES --- */
+    .section-hobbies { padding: var(--espace-l) 0; border-top: 1px solid var(--ligne); }
 
-    .certif-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .certif-logo {
-      font-family: var(--font-titre);
-      font-size: var(--t-xs);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background-color: var(--encre);
-      color: var(--creme);
-      padding: 0.3em 0.7em;
-      border-radius: 2px;
-      white-space: nowrap;
-    }
-
-    .certif-score {
-      font-family: var(--font-mono);
-      font-size: var(--t-xl);
-      font-weight: 700;
-      color: var(--terracotta);
-      line-height: 1;
-    }
-
-    .certif-score span {
-      font-size: var(--t-xs);
-      color: var(--gris-chaud);
-      font-weight: 400;
-      display: block;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .certif-nom {
-      font-family: var(--font-titre);
-      font-size: var(--t-lg);
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .certif-niveau {
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      color: var(--terracotta);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    /* Liste des modules MOOC / scores */
-    .certif-modules {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .certif-module-ligne {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: var(--t-xs);
-      gap: 0.5rem;
-    }
-
-    .certif-module-nom {
-      font-family: var(--font-corps);
-      color: var(--gris-chaud);
-      flex: 1;
-    }
-
-    .certif-module-score {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      color: var(--encre);
-      white-space: nowrap;
-    }
-
-    /* Barre de score par module */
-    .certif-module-barre {
-      width: 60px;
-      height: 3px;
-      background-color: var(--ligne);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .certif-module-barre-rempli {
-      height: 100%;
-      background-color: var(--terracotta);
-      border-radius: 2px;
-    }
-
-    .certif-meta {
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      color: var(--gris-chaud);
-      letter-spacing: 0.06em;
-      border-top: 1px solid var(--ligne);
-      padding-top: 0.7rem;
-    }
-
-    .certif-meta-ligne { margin-bottom: 0.2rem; }
-
-    /* Lien "voir certificat" */
-    .certif-lien {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      text-decoration: underline;
-      text-decoration-color: var(--ligne);
-      text-underline-offset: 3px;
-      transition: text-decoration-color var(--transition);
-      margin-top: auto;
-      cursor: pointer;
-    }
-
-    .certif-lien:hover {
-      text-decoration-color: var(--terracotta);
-    }
-
-    /* --- LANGUES ------------------------------------------ */
-    .section-langues {
-      padding: var(--espace-l) 0;
-      border-top: 1px solid var(--ligne);
-    }
-
-    .langues-grille {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--espace-m);
-      margin-top: var(--espace-m);
-    }
-
-    .langue-carte {
-      background-color: var(--sable);
-      border: 1px solid var(--ligne);
-      border-radius: var(--rayon);
-      padding: var(--espace-m);
-    }
-
-    .langue-nom {
-      font-family: var(--font-titre);
-      font-size: var(--t-xl);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .langue-niveau {
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      color: var(--terracotta);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .langue-bareme {
-      font-family: var(--font-corps);
-      font-size: var(--t-sm);
-      color: var(--gris-chaud);
-      font-style: italic;
-    }
-
-    /* --- HOBBIES ----------------------------------------- */
-    .section-hobbies {
-      padding: var(--espace-l) 0;
-      border-top: 1px solid var(--ligne);
-    }
-
-    .hobbies-liste {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: var(--espace-m);
-    }
-
-    .hobby-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      font-family: var(--font-titre);
-      font-size: var(--t-base);
-      font-weight: 700;
-      border: 1.5px solid var(--ligne);
-      padding: 0.6em 1.2em;
-      border-radius: 999px; /* pilule */
-      color: var(--encre);
-      transition: all var(--transition);
-    }
-
-    .hobby-tag:hover {
-      border-color: var(--terracotta);
-      color: var(--terracotta);
-    }
-
-    /* --- COMPÉTENCES : séparation HARD / SOFT ------------ */
+    /* --- COMPÉTENCES grille layout --- */
     .competences-double {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--espace-l);
       margin-top: var(--espace-m);
     }
-
-    .competences-bloc-titre {
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gris-chaud);
-      margin-bottom: var(--espace-s);
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--ligne);
-    }
-
-    .competences-bloc-titre::before {
-      content: '—— ';
-      color: var(--terracotta);
-    }
-
-    .competences-liste {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .comp-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .comp-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .comp-item-nom {
-      font-family: var(--font-titre);
-      font-size: var(--t-base);
-      font-weight: 700;
-    }
-
-    .comp-item-label {
-      font-family: var(--font-mono);
-      font-size: var(--t-xs);
-      color: var(--gris-chaud);
-      letter-spacing: 0.08em;
-    }
-
-    /* Barre de progression horizontale */
-    .comp-barre {
-      height: 4px;
-      background-color: var(--ligne);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .comp-barre-rempli {
-      height: 100%;
-      background-color: var(--terracotta);
-      border-radius: 2px;
-    }
-
     @media (max-width: 900px) {
       .competences-double { grid-template-columns: 1fr; }
       .langues-grille { grid-template-columns: 1fr; }
@@ -320,7 +49,13 @@
 </head>
 <body>
 
-  <!-- === NAVIGATION ======================================= -->
+  <!-- Éléments du curseur personnalisé (cachés, positionnés en JS) -->
+  <div id="curseur-point"></div>
+  <div id="curseur-anneau"></div>
+
+  <!-- ========================================================
+       NAVIGATION
+       ======================================================== -->
   <nav>
     <span class="nav-logo">Enzo K.</span>
     <ul class="nav-liens">
@@ -332,9 +67,9 @@
 
   <main>
 
-    <!-- ===================================================
+    <!-- ========================================================
          HERO
-         =================================================== -->
+         ======================================================== -->
     <section class="hero">
       <div class="hero-contenu">
         <p class="hero-surtitre">Portfolio · BTS SIO SLAM</p>
@@ -348,43 +83,58 @@
           <strong>25 mai</strong> au <strong>26 juin 2026</strong>.
         </p>
         <div class="hero-actions">
-          <!-- Remplace # par le chemin de ton CV PDF -->
-          <a href="#" class="btn btn-accent">Télécharger le CV</a>
-          <a href="mailto:mr.enzoko@gmail.com" class="btn">Me contacter</a>
+          <!-- Remplace # par le chemin de ton CV en PDF -->
+          <a href="#" class="btn btn-accent"><span>Télécharger le CV</span></a>
+          <a href="mailto:mr.enzoko@gmail.com" class="btn"><span>Me contacter</span></a>
         </div>
       </div>
 
+      <!-- Côté droit : hero-profil-inner reçoit le parallaxe JS -->
       <div class="hero-profil">
-        <!-- Remplace src par le chemin de ta photo -->
-        <div class="profil-photo-cadre">
-          <img src="image/Enzo.jpg" alt="Photo de Kosciuszko Enzo" />
-        </div>
-        <div class="profil-infos">
-          <div class="profil-infos-ligne">
-            <span class="key">Né le</span>
-            <span>11 juillet 2007</span>
+        <div class="hero-profil-inner">
+          <!-- Remplace src="photo.jpg" par ton image -->
+          <div class="profil-photo-cadre">
+            <img src="photo.jpg" alt="Photo de Kosciuszko Enzo" />
           </div>
-          <div class="profil-infos-ligne">
-            <span class="key">Ville</span>
-            <span>La Vaupalière, 76</span>
-          </div>
-          <div class="profil-infos-ligne">
-            <span class="key">Formation</span>
-            <span>BTS SIO SLAM</span>
-          </div>
-          <div class="profil-infos-ligne">
-            <span class="key">Permis</span>
-            <span>B</span>
+          <div class="profil-infos">
+            <div class="profil-infos-ligne">
+              <span class="key">Né le</span>
+              <span>11 juillet 2007</span>
+            </div>
+            <div class="profil-infos-ligne">
+              <span class="key">Ville</span>
+              <span>La Vaupalière, 76</span>
+            </div>
+            <div class="profil-infos-ligne">
+              <span class="key">Formation</span>
+              <span>BTS SIO SLAM</span>
+            </div>
+            <div class="profil-infos-ligne">
+              <span class="key">Permis</span>
+              <span>B</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================================================
-         COMPÉTENCES — HARD SKILLS / SOFT SKILLS séparés
-         Niveaux (width de la barre) : 33% = débutant,
-         66% = intermédiaire, 100% = avancé
-         =================================================== -->
+    <!-- ========================================================
+         TICKER DÉFILANT
+         Le JS (animations.js) remplit automatiquement la piste.
+         Pour changer les mots : modifie le tableau `items` dans animations.js
+         ======================================================== -->
+    <div class="ticker-section">
+      <div class="ticker-wrapper">
+        <div class="ticker-piste">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         COMPÉTENCES — Hard Skills / Soft Skills
+         data-width = valeur cible de la barre (animée par JS)
+         ======================================================== -->
     <section class="section-competences">
       <p class="label">Compétences</p>
       <h2 class="section-titre">Hard Skills &amp; Soft Skills</h2>
@@ -401,7 +151,8 @@
                 <span class="comp-item-nom">HTML / CSS</span>
                 <span class="comp-item-label">Développement web</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:45%"></div></div>
+              <!-- data-width = niveau affiché. Modifie librement entre 0% et 100% -->
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:90%" data-width="90%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -409,7 +160,7 @@
                 <span class="comp-item-nom">SQL</span>
                 <span class="comp-item-label">Bases de données</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:55%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:70%" data-width="70%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -417,7 +168,7 @@
                 <span class="comp-item-nom">C#</span>
                 <span class="comp-item-label">Développement logiciel</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:65%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:65%" data-width="65%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -425,7 +176,7 @@
                 <span class="comp-item-nom">C</span>
                 <span class="comp-item-label">Programmation système</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:40%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:40%" data-width="40%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -433,7 +184,7 @@
                 <span class="comp-item-nom">Réseaux &amp; Systèmes</span>
                 <span class="comp-item-label">Administration</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:45%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:60%" data-width="60%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -441,7 +192,7 @@
                 <span class="comp-item-nom">Cybersécurité</span>
                 <span class="comp-item-label">Sécurité applicative</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:55%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:55%" data-width="55%"></div></div>
             </div>
 
           </div>
@@ -457,7 +208,7 @@
                 <span class="comp-item-nom">Autonomie</span>
                 <span class="comp-item-label">Organisation personnelle</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:90%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:90%" data-width="90%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -465,7 +216,7 @@
                 <span class="comp-item-nom">Adaptabilité</span>
                 <span class="comp-item-label">Flexibilité face aux changements</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:85%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:85%" data-width="85%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -473,7 +224,7 @@
                 <span class="comp-item-nom">Esprit d'équipe</span>
                 <span class="comp-item-label">Collaboration &amp; communication</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:80%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:80%" data-width="80%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -481,7 +232,7 @@
                 <span class="comp-item-nom">Polyvalence</span>
                 <span class="comp-item-label">Multi-compétences</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:80%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:80%" data-width="80%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -489,7 +240,7 @@
                 <span class="comp-item-nom">Curiosité</span>
                 <span class="comp-item-label">Veille &amp; apprentissage continu</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:95%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:95%" data-width="95%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -497,7 +248,7 @@
                 <span class="comp-item-nom">Rigueur</span>
                 <span class="comp-item-label">Sens du détail &amp; qualité</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:75%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:75%" data-width="75%"></div></div>
             </div>
 
           </div>
@@ -506,22 +257,27 @@
       </div>
     </section>
 
-    <!-- ===================================================
+    <!-- ========================================================
          CERTIFICATIONS
-         Pour ajouter une certification : copie une .certif-carte
-         =================================================== -->
+         .spotlight-card = effet halo lumineux (géré par JS)
+         .certif-score-valeur[data-count] = compteur animé
+         ======================================================== -->
     <section class="section-certifications">
       <p class="label">Certifications</p>
-      <h2 class="section-titre">Diplômes &amp; certifications obtenus</h2>
+      <h2 class="section-titre">Diplômes &amp; certifications</h2>
 
       <div class="certif-grille">
 
         <!-- PIX -->
-        <div class="certif-carte">
+        <div class="certif-carte spotlight-card">
           <div class="certif-header">
             <span class="certif-logo">Pix</span>
             <div style="text-align:right">
-              <div class="certif-score">515 <span>points</span></div>
+              <div class="certif-score">
+                <!-- data-count = valeur cible du compteur animé -->
+                <span class="certif-score-valeur" data-count="515">0</span>
+                <span>points</span>
+              </div>
             </div>
           </div>
           <div class="certif-nom">Certification Pix</div>
@@ -532,50 +288,45 @@
             <div class="certif-meta-ligne">Centre : Lycée Thomas Corneille</div>
             <div class="certif-meta-ligne">Passage : 13/01/2025 · Délivrance : 06/02/2025</div>
           </div>
-          <!-- Remplace href="#" par le lien ou chemin vers ton certificat PDF -->
-          <a href="EKO_CertifPIX.pdf" class="certif-lien" target="_blank" rel="noopener">
-            ↗ Voir le certificat
-          </a>
+          <!-- Remplace # par le lien ou chemin de ton certificat -->
+          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
-        <!-- MOOC ANSSI -->
-        <div class="certif-carte">
+        <!-- ANSSI -->
+        <div class="certif-carte spotlight-card">
           <div class="certif-header">
             <span class="certif-logo">ANSSI</span>
           </div>
           <div class="certif-nom">MOOC — Panorama de la SSI</div>
           <div class="certif-niveau">Sécurité des systèmes d'information</div>
-          <!-- Liste des modules avec score -->
           <div class="certif-modules">
             <div class="certif-module-ligne">
               <span class="certif-module-nom">Panorama de la SSI</span>
-              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:92%"></div></div>
+              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:92%" data-width="92%"></div></div>
               <span class="certif-module-score">92%</span>
             </div>
             <div class="certif-module-ligne">
               <span class="certif-module-nom">Sécurité de l'authentification</span>
-              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:82%"></div></div>
+              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:82%" data-width="82%"></div></div>
               <span class="certif-module-score">82%</span>
             </div>
             <div class="certif-module-ligne">
               <span class="certif-module-nom">Sécurité sur Internet</span>
-              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:88%"></div></div>
+              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:88%" data-width="88%"></div></div>
               <span class="certif-module-score">88%</span>
             </div>
             <div class="certif-module-ligne">
-              <span class="certif-module-nom">Sécurité du poste de travail &amp; nomadisme</span>
-              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:86%"></div></div>
+              <span class="certif-module-nom">Sécurité du poste &amp; nomadisme</span>
+              <div class="certif-module-barre"><div class="certif-module-barre-rempli" style="width:86%" data-width="86%"></div></div>
               <span class="certif-module-score">86%</span>
             </div>
           </div>
-          <!-- Remplace href="#" par le lien vers ton certificat ANSSI -->
-          <a href="EKO_CertifANNSI.pdf" class="certif-lien" target="_blank" rel="noopener">
-            ↗ Voir le certificat
-          </a>
+          <!-- Remplace # par le lien de ton certificat ANSSI -->
+          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
         <!-- CISCO -->
-        <div class="certif-carte">
+        <div class="certif-carte spotlight-card">
           <div class="certif-header">
             <span class="certif-logo">Cisco</span>
           </div>
@@ -585,22 +336,19 @@
             <div class="certif-meta-ligne">Initiation à la simulation réseau</div>
             <div class="certif-meta-ligne">via Cisco Networking Academy</div>
           </div>
-          <!-- Remplace href="#" par le lien vers ton badge Cisco -->
-          <a href="EKO_CertifCisco.pdf" class="certif-lien" target="_blank" rel="noopener">
-            ↗ Voir le certificat
-          </a>
+          <!-- Remplace # par le lien de ton badge Cisco -->
+          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
       </div>
     </section>
 
-    <!-- ===================================================
-         PARCOURS : FORMATION séparée des EXPÉRIENCES PRO
-         =================================================== -->
+    <!-- ========================================================
+         FORMATION
+         ======================================================== -->
     <section class="section-experiences">
       <p class="label">Formation</p>
       <h2 class="section-titre">Parcours scolaire</h2>
-
       <div class="timeline">
 
         <div class="timeline-item">
@@ -622,8 +370,7 @@
             <div class="timeline-lieu">Lycée Thomas Corneille · Barentin</div>
             <p class="timeline-texte">
               Sciences et Technologies de l'Industrie et du Développement Durable.
-              Maîtrise des technologies de l'ingénieur, approche pratique
-              par projets multidisciplinaires.
+              Approche pratique par projets multidisciplinaires.
             </p>
           </div>
         </div>
@@ -631,11 +378,12 @@
       </div>
     </section>
 
-    <!-- Expériences professionnelles séparées -->
+    <!-- ========================================================
+         EXPÉRIENCES PRO
+         ======================================================== -->
     <section class="section-experiences" style="border-top: 1px solid var(--ligne);">
       <p class="label">Expérience professionnelle</p>
       <h2 class="section-titre">Parcours pro</h2>
-
       <div class="timeline">
 
         <div class="timeline-item">
@@ -644,7 +392,7 @@
             <div class="timeline-contenu-titre">Job étudiant — Carrefour Drive</div>
             <div class="timeline-lieu">Carrefour · Barentin</div>
             <p class="timeline-texte">
-              Préparation de commandes, sens du service client, autonomie et maîtrise
+              Préparation de commandes, service client, autonomie et maîtrise
               des outils de suivi de livraison.
             </p>
           </div>
@@ -664,28 +412,27 @@
       </div>
     </section>
 
-    <!-- ===================================================
-         LANGUES — barème officiel CECRL
-         =================================================== -->
+    <!-- ========================================================
+         LANGUES
+         ======================================================== -->
     <section class="section-langues">
       <p class="label">Langues</p>
       <h2 class="section-titre">Maîtrise linguistique</h2>
-
       <div class="langues-grille">
 
-        <div class="langue-carte">
+        <div class="langue-carte spotlight-card">
           <div class="langue-nom">Français</div>
           <div class="langue-niveau">Langue natale</div>
           <div class="langue-bareme">C2 — Maîtrise parfaite</div>
         </div>
 
-        <div class="langue-carte">
+        <div class="langue-carte spotlight-card">
           <div class="langue-nom">Anglais</div>
           <div class="langue-niveau">Intermédiaire</div>
           <div class="langue-bareme">B1 — Utilisateur indépendant (CECRL)</div>
         </div>
 
-        <div class="langue-carte">
+        <div class="langue-carte spotlight-card">
           <div class="langue-nom">Allemand</div>
           <div class="langue-niveau">Débutant</div>
           <div class="langue-bareme">A2 — Utilisateur élémentaire (CECRL)</div>
@@ -694,13 +441,12 @@
       </div>
     </section>
 
-    <!-- ===================================================
+    <!-- ========================================================
          HOBBIES
-         =================================================== -->
+         ======================================================== -->
     <section class="section-hobbies">
       <p class="label">Centres d'intérêt</p>
       <h2 class="section-titre">Hobbies</h2>
-
       <div class="hobbies-liste">
         <span class="hobby-tag">🎮 Jeux vidéo</span>
         <span class="hobby-tag">🎬 Cinéma &amp; Films</span>
@@ -710,6 +456,9 @@
 
   </main>
 
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
   <footer>
     <span class="footer-nom">Kosciuszko Enzo</span>
     <div class="footer-contact">
@@ -717,6 +466,9 @@
       &nbsp;·&nbsp; +33 7 68 06 86 63
     </div>
   </footer>
+
+  <!-- Le script est chargé en fin de body pour que le DOM soit prêt -->
+  <script src="animations.js"></script>
 
 </body>
 </html>
