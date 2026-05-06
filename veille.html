@@ -5,6 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veille Technologique — Enzo K.</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ============================================================
+       STYLES SPÉCIFIQUES — PAGE VEILLE
+       ============================================================ */
+
+    /* --- BORNES ------------------------------------------- */
+    .bornage-grille {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--espace-m);
+    }
+
+    .bornage-carte {
+      background-color: var(--sable);
+      border: 1px solid var(--ligne);
+      border-radius: var(--rayon);
+      padding: var(--espace-m);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Bande colorée unique en haut de chaque carte */
+    .bornage-carte::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: var(--rayon) var(--rayon) 0 0;
+    }
+
+    .bornage-carte.borne-eco::before     { background-color: #4A8C6F; }
+    .bornage-carte.borne-reg::before     { background-color: #7B6FA0; }
+    .bornage-carte.borne-tech::before    { background-color: var(--terracotta); }
+
+    .bornage-carte:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--ombre);
+    }
+
+    .bornage-icone {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      line-height: 1;
+    }
+
+    /* Label de type de borne */
+    .bornage-type {
+      font-family: var(--font-mono);
+      font-size: var(--t-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .bornage-carte.borne-eco  .bornage-type { color: #4A8C6F; }
+    .bornage-carte.borne-reg  .bornage-type { color: #7B6FA0; }
+    .bornage-carte.borne-tech .bornage-type { color: var(--terracotta); }
+
+    .bornage-numero {
+      font-family: var(--font-mono);
+      font-size: var(--t-3xl);
+      font-weight: 700;
+      color: var(--ligne);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .bornage-nom {
+      font-family: var(--font-titre);
+      font-size: var(--t-xl);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .bornage-desc {
+      font-size: var(--t-sm);
+      color: var(--gris-chaud);
+      line-height: 1.7;
+    }
+
+    /* Séparateur visuel entre type et nom */
+    .bornage-separateur {
+      width: 24px;
+      height: 1.5px;
+      margin: 0.5rem 0 0.8rem;
+    }
+
+    .bornage-carte.borne-eco  .bornage-separateur { background-color: #4A8C6F; }
+    .bornage-carte.borne-reg  .bornage-separateur { background-color: #7B6FA0; }
+    .bornage-carte.borne-tech .bornage-separateur { background-color: var(--terracotta); }
+
+    @media (max-width: 900px) {
+      .bornage-grille { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,17 +114,13 @@
     <ul class="nav-liens">
       <li><a href="index.html" class="nav-lien">CV</a></li>
       <li><a href="veille.html" class="nav-lien actif">Veille</a></li>
-      <li>
-        <a href="rectorat.html" class="nav-lien">
-          Rectorat <span class="badge-wip">WIP</span>
-        </a>
-      </li>
+      <li><a href="rectorat.html" class="nav-lien">Rectorat</a></li>
     </ul>
   </nav>
 
   <main>
 
-    <!-- === HERO DE LA PAGE VEILLE ======================== -->
+    <!-- === HERO ========================================== -->
     <section class="veille-hero">
       <p class="label">Veille technologique · BTS SIO SLAM</p>
       <h1 class="veille-titre">
@@ -37,16 +130,10 @@
       </h1>
       <p class="veille-intro">
         Exploration de l'impact de l'intelligence artificielle générative sur
-        la production de code, la qualité logicielle et la sécurité applicative.
+        le marché du travail des développeurs, son encadrement réglementaire,
+        et la fiabilité du code qu'elle produit.
       </p>
 
-      <!-- === ONGLETS DE NAVIGATION =====================
-           JavaScript en bas de page gère l'affichage
-           des panneaux selon l'onglet actif.
-           Pour renommer un onglet : change le texte du bouton
-           ET l'id du panneau correspondant (data-panneau="xxx"
-           et id="panneau-xxx" doivent correspondre).
-           ================================================ -->
       <div class="onglets-nav" role="tablist">
         <button class="onglet-btn actif" data-panneau="theme" role="tab">Thème</button>
         <button class="onglet-btn" data-panneau="outils" role="tab">Outils</button>
@@ -59,44 +146,53 @@
 
       <p class="label" style="margin-bottom:0.5rem">Bornage du sujet</p>
       <h2 class="section-titre" style="margin-bottom:var(--espace-m)">
-        Trois axes d'exploration
+        Trois bornes d'analyse
       </h2>
 
-      <!-- ================================================
-           Grille des 3 axes.
-           Pour modifier un axe : change le numéro, le nom et la description.
-           ================================================ -->
       <div class="bornage-grille">
 
-        <!-- Axe 1 -->
-        <div class="bornage-carte">
+        <!-- Borne 1 — Économique -->
+        <div class="bornage-carte borne-eco">
+          <div class="bornage-icone">📈</div>
+          <div class="bornage-type">Borne économique</div>
+          <div class="bornage-separateur"></div>
           <div class="bornage-numero">01</div>
-          <div class="bornage-nom">Production de code</div>
+          <div class="bornage-nom">Impact sur le marché du travail</div>
           <p class="bornage-desc">
-            Assistance à la génération de code et de fonctions. Des outils comme
-            GitHub Copilot ou les modèles Devstral permettent d'accélérer
-            considérablement le développement applicatif.
+            L'IA générative transforme profondément le métier de développeur :
+            automatisation de tâches répétitives, émergence de nouveaux rôles
+            (prompt engineer, AI reviewer), réduction des coûts de développement
+            et interrogations sur l'avenir de certains postes juniors.
           </p>
         </div>
 
-        <!-- Axe 2 -->
-        <div class="bornage-carte">
+        <!-- Borne 2 — Réglementaire -->
+        <div class="bornage-carte borne-reg">
+          <div class="bornage-icone">⚖️</div>
+          <div class="bornage-type">Borne réglementaire</div>
+          <div class="bornage-separateur"></div>
           <div class="bornage-numero">02</div>
-          <div class="bornage-nom">Tests &amp; qualité logicielle</div>
+          <div class="bornage-nom">Encadrement légal et éthique</div>
           <p class="bornage-desc">
-            Automatisation des tests unitaires et détection proactive des erreurs.
-            L'IA identifie les problèmes de qualité et génère des suites de tests
-            rapidement et efficacement.
+            Le code généré par l'IA soulève des questions inédites : qui détient
+            les droits sur ce code ? Qui est responsable en cas de bug critique ?
+            L'EU AI Act encadre désormais les usages à risque, redéfinissant
+            les obligations des entreprises qui intègrent ces outils.
           </p>
         </div>
 
-        <!-- Axe 3 -->
-        <div class="bornage-carte">
+        <!-- Borne 3 — Technique -->
+        <div class="bornage-carte borne-tech">
+          <div class="bornage-icone">🔬</div>
+          <div class="bornage-type">Borne technique</div>
+          <div class="bornage-separateur"></div>
           <div class="bornage-numero">03</div>
-          <div class="bornage-nom">Sécurité applicative</div>
+          <div class="bornage-nom">Fiabilité et limites du code généré</div>
           <p class="bornage-desc">
-            Identification des vulnérabilités et proposition de correctifs automatisés.
-            La vigilance reste nécessaire pour prévenir de nouveaux vecteurs d'attaque.
+            Les modèles d'IA génèrent du code plausible mais pas toujours correct :
+            hallucinations, dépendances obsolètes, failles de sécurité non détectées,
+            dette technique accumulée. Comprendre ces limites est indispensable pour
+            les intégrer de façon responsable dans un workflow professionnel.
           </p>
         </div>
 
@@ -107,8 +203,9 @@
         <p class="label" style="margin-bottom:0.5rem">Pourquoi ce sujet ?</p>
         <p style="color:var(--gris-chaud); font-size:var(--t-lg); line-height:1.7;">
           L'IA générative est désormais au cœur du développement logiciel moderne.
-          En BTS SIO option SLAM, comprendre ces outils est devenu indispensable
-          pour travailler efficacement et anticiper les évolutions du métier.
+          En BTS SIO option SLAM, comprendre ces outils — leurs apports, leurs limites
+          et leur cadre légal — est devenu indispensable pour travailler efficacement
+          et anticiper les évolutions du métier.
         </p>
       </div>
 
@@ -122,13 +219,8 @@
         Comment je surveille les tendances
       </h2>
 
-      <!-- ================================================
-           Cartes outils. Pour en ajouter une, copie un
-           bloc .outil-carte complet.
-           ================================================ -->
       <div class="outils-grille">
 
-        <!-- Outil 1 -->
         <div class="outil-carte">
           <div class="outil-nom">Feedly</div>
           <p class="outil-desc">
@@ -138,7 +230,6 @@
           <span class="outil-type">Agrégateur RSS</span>
         </div>
 
-        <!-- Outil 2 -->
         <div class="outil-carte">
           <div class="outil-nom">Google Alerts</div>
           <p class="outil-desc">
@@ -148,7 +239,6 @@
           <span class="outil-type">Alertes automatiques</span>
         </div>
 
-        <!-- Outil 3 -->
         <div class="outil-carte">
           <div class="outil-nom">LinkedIn</div>
           <p class="outil-desc">
@@ -158,7 +248,6 @@
           <span class="outil-type">Réseau professionnel</span>
         </div>
 
-        <!-- Outil 4 — à personnaliser si besoin -->
         <div class="outil-carte">
           <div class="outil-nom">L'Usine Digitale</div>
           <p class="outil-desc">
@@ -172,7 +261,7 @@
 
     </div>
 
-    <!-- === PANNEAU 3 : NEWS / ACTUALITÉS ================ -->
+    <!-- === PANNEAU 3 : NEWS ============================= -->
     <div class="onglet-panneau" id="panneau-news">
 
       <p class="label" style="margin-bottom:0.5rem">Articles analysés</p>
@@ -180,14 +269,9 @@
         Actualités sélectionnées
       </h2>
 
-      <!-- ================================================
-           Liste d'articles. Pour ajouter un article :
-           copie un bloc .news-carte complet et modifie
-           les informations (date, source, titre, résumé, URL).
-           ================================================ -->
       <div class="news-liste">
 
-        <!-- Article 1 : Mistral Devstral 2 -->
+        <!-- Article 1 -->
         <article class="news-carte">
           <div class="news-meta">
             <div class="news-date">10 déc. 2025</div>
@@ -195,10 +279,9 @@
             <p style="font-size:var(--t-xs); color:var(--gris-chaud); margin-bottom:0.5rem;">
               Auteur : Célia Séramour
             </p>
-            <!-- Tags de bornage : indiquent à quel axe se rapporte l'article -->
             <div class="news-bornage">
-              <span class="tag actif">Production de code</span>
-              <span class="tag actif">Sécurité</span>
+              <span class="tag actif">Technique</span>
+              <span class="tag actif">Économique</span>
             </div>
           </div>
           <div class="news-contenu">
@@ -213,14 +296,11 @@
               licences permissives. Mistral lance également Vibe CLI, un assistant en ligne
               de commande capable d'explorer et d'exécuter du code en langage naturel.
             </p>
-            <!-- Remplace href="..." par l'URL réelle de l'article -->
-            <a href="#" class="news-lien" target="_blank" rel="noopener">
-              Lire l'article →
-            </a>
+            <a href="#" class="news-lien" target="_blank" rel="noopener">Lire l'article →</a>
           </div>
         </article>
 
-        <!-- Article 2 : OpenAI et AWS -->
+        <!-- Article 2 -->
         <article class="news-carte">
           <div class="news-meta">
             <div class="news-date">27 févr. 2026</div>
@@ -229,8 +309,8 @@
               Auteur : Célia Séramour
             </p>
             <div class="news-bornage">
-              <span class="tag actif">Production de code</span>
-              <span class="tag actif">Tests &amp; qualité</span>
+              <span class="tag actif">Économique</span>
+              <span class="tag actif">Réglementaire</span>
             </div>
           </div>
           <div class="news-contenu">
@@ -244,9 +324,7 @@
               développeurs un accès fluide au calcul, à la mémoire et au contexte
               nécessaire pour des outils intégrés dans les workflows.
             </p>
-            <a href="#" class="news-lien" target="_blank" rel="noopener">
-              Lire l'article →
-            </a>
+            <a href="#" class="news-lien" target="_blank" rel="noopener">Lire l'article →</a>
           </div>
         </article>
 
@@ -257,12 +335,12 @@
             <div class="news-date">JJ MMM AAAA</div>
             <div class="news-source">Source</div>
             <div class="news-bornage">
-              <span class="tag actif">Axe concerné</span>
+              <span class="tag actif">Borne concernée</span>
             </div>
           </div>
           <div class="news-contenu">
             <h3 class="news-titre">Titre de l'article</h3>
-            <p class="news-resume">Résumé de l'article...</p>
+            <p class="news-resume">Résumé...</p>
             <a href="URL" class="news-lien" target="_blank">Lire l'article →</a>
           </div>
         </article>
@@ -282,15 +360,6 @@
     </div>
   </footer>
 
-  <!-- ===================================================
-       SCRIPT — Gestion des onglets
-       Fonctionnement :
-       1. On récupère tous les boutons .onglet-btn
-       2. Au clic, on retire "actif" de tout le monde
-       3. On ajoute "actif" au bouton cliqué et au
-          panneau correspondant (via data-panneau="xxx"
-          qui correspond à id="panneau-xxx")
-       =================================================== -->
   <script src="animations.js"></script>
   <script>
     const boutons = document.querySelectorAll('.onglet-btn');
@@ -298,16 +367,10 @@
 
     boutons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Retirer "actif" de tous les boutons et panneaux
         boutons.forEach(b => b.classList.remove('actif'));
         panneaux.forEach(p => p.classList.remove('actif'));
-
-        // Activer le bouton cliqué
         btn.classList.add('actif');
-
-        // Activer le panneau correspondant
-        const cible = btn.dataset.panneau; // ex: "theme", "outils", "news"
-        const panneau = document.getElementById('panneau-' + cible);
+        const panneau = document.getElementById('panneau-' + btn.dataset.panneau);
         if (panneau) panneau.classList.add('actif');
       });
     });
