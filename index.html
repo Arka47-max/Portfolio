@@ -93,7 +93,7 @@
                 try {
                   await navigator.clipboard.writeText(document.getElementById('textToCopy').value);
                   const btn = document.getElementById('copyBtn');
-                  btn.querySelector('span').textContent = 'Copié !';
+                  btn.querySelector('span').textContent = 'Mail Copié !';
                   setTimeout(() => btn.querySelector('span').textContent = 'Me contacter', 2000);
                 } catch (err) {
                   alert('Impossible de copier : ' + err);
