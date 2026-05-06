@@ -67,7 +67,7 @@
     </ul>
   </nav>
 
-  <main>
+    <main>
 
     <!-- ========================================================
          HERO
@@ -84,11 +84,25 @@
           logiciel et de cybersécurité. En recherche d'un stage du
           <strong>25 mai</strong> au <strong>26 juin 2026</strong>.
         </p>
-        <div class="hero-actions">
-          <!-- Remplace # par le chemin de ton CV en PDF -->
-          <a href="#" class="btn btn-accent"><span>Télécharger le CV</span></a>
-          <a href="mailto:mr.enzoko@gmail.com" class="btn"><span>Me contacter</span></a>
-        </div>
+         <div class="hero-actions">
+            <a href="pdf/EKO_CV.pdf" class="btn btn-accent"><span>Télécharger le CV</span></a>
+          
+            <input id="textToCopy" type="hidden" value="mr.enzoko@gmail.com" />
+            <button id="copyBtn" class="btn"><span>Me contacter</span></button>
+          
+            <script>
+              document.getElementById('copyBtn').addEventListener('click', async () => {
+                try {
+                  await navigator.clipboard.writeText(document.getElementById('textToCopy').value);
+                  const btn = document.getElementById('copyBtn');
+                  btn.querySelector('span').textContent = 'Mail Copié !';
+                  setTimeout(() => btn.querySelector('span').textContent = 'Me contacter', 2000);
+                } catch (err) {
+                  alert('Impossible de copier : ' + err);
+                }
+              });
+            </script>
+          </div>
       </div>
 
       <!-- Côté droit : hero-profil-inner reçoit le parallaxe JS -->
@@ -96,7 +110,7 @@
         <div class="hero-profil-inner">
           <!-- Remplace src="photo.jpg" par ton image -->
           <div class="profil-photo-cadre">
-            <img src="photo.jpg" alt="Photo de Kosciuszko Enzo" />
+            <img src="image/Enzo.jpg" alt="Photo de Kosciuszko Enzo" />
           </div>
           <div class="profil-infos">
             <div class="profil-infos-ligne">
@@ -154,23 +168,15 @@
                 <span class="comp-item-label">Développement web</span>
               </div>
               <!-- data-width = niveau affiché. Modifie librement entre 0% et 100% -->
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:75%" data-width="75%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:40%" data-width="40%"></div></div>
             </div>
 
             <div class="comp-item">
               <div class="comp-item-header">
-                <span class="comp-item-nom">PHP</span>
-                <span class="comp-item-label">Développement web dynamique</span>
+                <span class="comp-item-nom">SQL</span>
+                <span class="comp-item-label">Bases de données</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:60%" data-width="60%"></div></div>
-            </div>
-
-            <div class="comp-item">
-              <div class="comp-item-header">
-                <span class="comp-item-nom">SQL / MySQL</span>
-                <span class="comp-item-label">Bases de données relationnelles</span>
-              </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:65%" data-width="65%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:50%" data-width="50%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -178,7 +184,7 @@
                 <span class="comp-item-nom">C#</span>
                 <span class="comp-item-label">Développement logiciel</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:60%" data-width="60%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:65%" data-width="65%"></div></div>
             </div>
 
             <div class="comp-item">
@@ -186,23 +192,23 @@
                 <span class="comp-item-nom">C</span>
                 <span class="comp-item-label">Programmation système</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:35%" data-width="35%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:40%" data-width="40%"></div></div>
             </div>
 
             <div class="comp-item">
               <div class="comp-item-header">
                 <span class="comp-item-nom">Réseaux &amp; Systèmes</span>
-                <span class="comp-item-label">Administration — Cisco Packet Tracer</span>
+                <span class="comp-item-label">Administration</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:55%" data-width="55%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:60%" data-width="60%"></div></div>
             </div>
 
             <div class="comp-item">
               <div class="comp-item-header">
                 <span class="comp-item-nom">Cybersécurité</span>
-                <span class="comp-item-label">MOOC ANSSI · root.me</span>
+                <span class="comp-item-label">Sécurité applicative</span>
               </div>
-              <div class="comp-barre"><div class="comp-barre-rempli" style="width:50%" data-width="50%"></div></div>
+              <div class="comp-barre"><div class="comp-barre-rempli" style="width:55%" data-width="55%"></div></div>
             </div>
 
           </div>
@@ -299,7 +305,7 @@
             <div class="certif-meta-ligne">Passage : 13/01/2025 · Délivrance : 06/02/2025</div>
           </div>
           <!-- Remplace # par le lien ou chemin de ton certificat -->
-          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
+          <a href="EKO_CertifPIX.pdf" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
         <!-- ANSSI -->
@@ -332,7 +338,7 @@
             </div>
           </div>
           <!-- Remplace # par le lien de ton certificat ANSSI -->
-          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
+          <a href="EKO_CertifANNSI.pdf" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
         <!-- CISCO -->
@@ -347,7 +353,7 @@
             <div class="certif-meta-ligne">via Cisco Networking Academy</div>
           </div>
           <!-- Remplace # par le lien de ton badge Cisco -->
-          <a href="#" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
+          <a href="EKO_CertifCisco.pdf" class="certif-lien" target="_blank" rel="noopener">↗ Voir le certificat</a>
         </div>
 
       </div>
