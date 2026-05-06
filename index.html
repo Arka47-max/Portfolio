@@ -85,7 +85,26 @@
         <div class="hero-actions">
           <!-- Remplace # par le chemin de ton CV en PDF -->
           <a href="#" class="btn btn-accent"><span>Télécharger le CV</span></a>
-          <a href="mailto:mr.enzoko@gmail.com" class="btn"><span>Me contacter</span></a>
+          <input type="text" id="textToCopy" value="mr.enzoko@gmail.com">
+          <button id="copyBtn">ME CONTACTER</button>
+
+          <script>
+              // Récupération des éléments
+              const copyBtn = document.getElementById('copyBtn');
+              const textInput = document.getElementById('textToCopy');
+    
+              // Gestion du clic sur le bouton
+              copyBtn.addEventListener('click', async () => {
+                  try {
+                      // Utilisation de l'API Clipboard
+                      await navigator.clipboard.writeText(textInput.value);
+                      alert('Texte copié dans le presse-papiers !');
+                  } catch (err) {
+                      console.error('Erreur lors de la copie :', err);
+                      alert('Impossible de copier le texte.');
+                  }
+              });
+          </script>
         </div>
       </div>
 
